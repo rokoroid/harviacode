@@ -1,0 +1,157 @@
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class Jam extends CI_Controller
+{
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('M_jam');
+        $this->load->library('form_validation');
+
+        $userSession = $this->session->userdata('baaku');
+        if ($userSession['bagian'] != "staff"){
+            redirect('Login');
+        }
+    }
+
+    public function index()
+    {
+        $q = urldecode($this->input->get('q', TRUE));
+        $start = intval($this->input->get('start'));
+        
+        if ($q <> '') {
+            $config['base_url'] = base_url() . 'jam/index.html?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'jam/index.html?q=' . urlencode($q);
+        } else {
+            $config['base_url'] = base_url() . 'jam/index.html';
+            $config['first_url'] = base_url() . 'jam/index.html';
+        }
+
+        $config['per_page'] = 10;
+        $config['page_query_string'] = TRUE;
+        $config['total_rows'] = $this->M_jam->total_rows($q);
+        // $jam = $this->M_jam->get_limit_data($config['per_page'], $start, $q);
+        $jam = $this->M_jam->getalljam();
+
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
+
+        $data = array(
+            'jam_data' => $jam,
+            'q' => $q,
+            'pagination' => $this->pagination->create_links(),
+            'total_rows' => $config['total_rows'],
+            'start' => $start,
+        );
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('jam/tb_jam_list', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function create() 
+    {
+        $data = array(
+            'button' => 'Tambah',
+            'action' => site_url('jam/create_action'),
+	    'id_jam' => set_value('id_jam'),
+	    'kode_jam' => set_value('kode_jam'),
+	    'nama_jam' => set_value('nama_jam'),
+	);
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('jam/tb_jam_form', $data);
+        $this->load->view('template/footer');
+    }
+    
+    public function create_action() 
+    {
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->create();
+        } else {
+            $data = array(
+		'kode_jam' => $this->input->post('kode_jam',TRUE),
+		'nama_jam' => $this->input->post('nama_jam',TRUE),
+	    );
+
+            $this->M_jam->insert($data);
+            $this->session->set_flashdata('message', 'Create Record Success');
+            redirect(site_url('jam'));
+        }
+    }
+    
+    public function update($id) 
+    {
+        $row = $this->M_jam->get_by_id($id);
+
+        if ($row) {
+            $data = array(
+                'button' => 'Update',
+                'action' => site_url('jam/update_action'),
+		'id_jam' => set_value('id_jam', $row->id_jam),
+		'kode_jam' => set_value('kode_jam', $row->kode_jam),
+		'nama_jam' => set_value('nama_jam', $row->nama_jam),
+	    );
+            $this->load->view('template/header');
+            $this->load->view('template/sidebar');
+            $this->load->view('jam/tb_jam_form', $data);
+            $this->load->view('template/footer');
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('jam'));
+        }
+    }
+    
+    public function update_action() 
+    {
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->update($this->input->post('id_jam', TRUE));
+        } else {
+            $data = array(
+		'kode_jam' => $this->input->post('kode_jam',TRUE),
+		'nama_jam' => $this->input->post('nama_jam',TRUE),
+	    );
+
+            $this->M_jam->update($this->input->post('id_jam', TRUE), $data);
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('jam'));
+        }
+    }
+    
+    public function delete($id) 
+    {
+        $row = $this->M_jam->get_by_id($id);
+
+        if ($row) {
+            $this->M_jam->delete($id);
+            $this->session->set_flashdata('message', 'Delete Record Success');
+            redirect(site_url('jam'));
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('jam'));
+        }
+    }
+
+    public function _rules() 
+    {
+	$this->form_validation->set_rules('kode_jam', 'kode jam', 'trim|required');
+	$this->form_validation->set_rules('nama_jam', 'nama jam', 'trim|required');
+
+	$this->form_validation->set_rules('id_jam', 'id_jam', 'trim');
+	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    }
+
+}
+
+/* End of file Jam.php */
+/* Location: ./application/controllers/Jam.php */
+/* Please DO NOT modify this information : */
+/* Generated by Harviacode Codeigniter CRUD Generator 2018-08-01 17:27:05 */
+/* http://harviacode.com */

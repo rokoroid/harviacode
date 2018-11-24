@@ -1,0 +1,157 @@
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class Hari extends CI_Controller
+{
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('M_hari');
+        $this->load->library('form_validation');
+
+        $userSession = $this->session->userdata('baaku');
+        if ($userSession['bagian'] != "staff"){
+            redirect('Login');
+        }
+    }
+
+    public function index()
+    {
+        $q = urldecode($this->input->get('q', TRUE));
+        $start = intval($this->input->get('start'));
+        
+        if ($q <> '') {
+            $config['base_url'] = base_url() . 'hari/index.html?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'hari/index.html?q=' . urlencode($q);
+        } else {
+            $config['base_url'] = base_url() . 'hari/index.html';
+            $config['first_url'] = base_url() . 'hari/index.html';
+        }
+
+        $config['per_page'] = 10;
+        $config['page_query_string'] = TRUE;
+        $config['total_rows'] = $this->M_hari->total_rows($q);
+        // $hari = $this->M_hari->get_limit_data($config['per_page'], $start, $q);
+        $hari = $this->M_hari->getallhari();
+
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
+
+        $data = array(
+            'hari_data' => $hari,
+            'q' => $q,
+            'pagination' => $this->pagination->create_links(),
+            'total_rows' => $config['total_rows'],
+            'start' => $start,
+        );
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('hari/tb_hari_list', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function create() 
+    {
+        $data = array(
+            'button' => 'Tambah',
+            'action' => site_url('hari/create_action'),
+	    'id_hari' => set_value('id_hari'),
+	    'kode_hari' => set_value('kode_hari'),
+	    'nama_hari' => set_value('nama_hari'),
+	);
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('hari/tb_hari_form', $data);
+        $this->load->view('template/footer');
+    }
+    
+    public function create_action() 
+    {
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->create();
+        } else {
+            $data = array(
+		'kode_hari' => $this->input->post('kode_hari',TRUE),
+		'nama_hari' => $this->input->post('nama_hari',TRUE),
+	    );
+
+            $this->M_hari->insert($data);
+            $this->session->set_flashdata('message', 'Create Record Success');
+            redirect(site_url('hari'));
+        }
+    }
+    
+    public function update($id) 
+    {
+        $row = $this->M_hari->get_by_id($id);
+
+        if ($row) {
+            $data = array(
+                'button' => 'Update',
+                'action' => site_url('hari/update_action'),
+		'id_hari' => set_value('id_hari', $row->id_hari),
+		'kode_hari' => set_value('kode_hari', $row->kode_hari),
+		'nama_hari' => set_value('nama_hari', $row->nama_hari),
+	    );
+            $this->load->view('template/header');
+            $this->load->view('template/sidebar');
+            $this->load->view('hari/tb_hari_form', $data);
+            $this->load->view('template/footer');
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('hari'));
+        }
+    }
+    
+    public function update_action() 
+    {
+        $this->_rules();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->update($this->input->post('id_hari', TRUE));
+        } else {
+            $data = array(
+		'kode_hari' => $this->input->post('kode_hari',TRUE),
+		'nama_hari' => $this->input->post('nama_hari',TRUE),
+	    );
+
+            $this->M_hari->update($this->input->post('id_hari', TRUE), $data);
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('hari'));
+        }
+    }
+    
+    public function delete($id) 
+    {
+        $row = $this->M_hari->get_by_id($id);
+
+        if ($row) {
+            $this->M_hari->delete($id);
+            $this->session->set_flashdata('message', 'Delete Record Success');
+            redirect(site_url('hari'));
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('hari'));
+        }
+    }
+
+    public function _rules() 
+    {
+	$this->form_validation->set_rules('kode_hari', 'kode hari', 'trim|required');
+	$this->form_validation->set_rules('nama_hari', 'nama hari', 'trim|required');
+
+	$this->form_validation->set_rules('id_hari', 'id_hari', 'trim');
+	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    }
+
+}
+
+/* End of file Hari.php */
+/* Location: ./application/controllers/Hari.php */
+/* Please DO NOT modify this information : */
+/* Generated by Harviacode Codeigniter CRUD Generator 2018-08-01 17:26:53 */
+/* http://harviacode.com */
