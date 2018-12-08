@@ -178,8 +178,8 @@ class Jadwal extends CI_Controller
     public function _rules() 
     {
 	$this->form_validation->set_rules('id_semester', 'id semester', 'trim|required');
-	$this->form_validation->set_rules('id_makul', 'id makul', 'trim|required');
-	$this->form_validation->set_rules('id_kelas', 'nama kelas', 'trim|required');
+	// $this->form_validation->set_rules('id_makul', 'id makul', 'trim|required');
+	// $this->form_validation->set_rules('id_kelas', 'nama kelas', 'trim|required');
 	// $this->form_validation->set_rules('id_dosen', 'id dosen', 'trim|required');
 
 	$this->form_validation->set_rules('id_jadwal', 'id_jadwal', 'trim');

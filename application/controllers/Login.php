@@ -31,7 +31,7 @@ class Login extends CI_Controller {
         	$this->session->set_userdata('sesDataLogin',$dataLogin);
        		redirect('Login/loginDosen');
         }
-        else if ($akses == "BAAKU") {
+        else if ($akses == "Baaku") {
         	$dataLogin = array (
         			'id'=>$id,
         			'pass'=>$pass,
@@ -39,6 +39,15 @@ class Login extends CI_Controller {
         		);
         	$this->session->set_userdata('sesDataLogin',$dataLogin);
         	redirect('Login/loginBaaku');
+        }
+        else if ($akses == "Kaprodi") {
+            $dataLogin = array (
+                    'id'=>$id,
+                    'pass'=>$pass,
+                    'bagian'=>$akses
+                );
+            $this->session->set_userdata('sesDataLogin',$dataLogin);
+            redirect('Login/loginKaprodi');
         }
 	}
 
@@ -102,6 +111,37 @@ class Login extends CI_Controller {
             redirect('Login');
         }
 	}
+
+    public function loginKaprodi()
+    {
+        $checkSession = $this->session->userdata('sesDataLogin');
+        // print_r($checkSession['id']);
+
+        $id = $checkSession['id'];
+        $pass = $checkSession['pass'];
+
+        $cek = $this->db->get_where('tb_users',array('username'=>$id))->num_rows();
+        $result = $this->db->get_where('tb_users',array('username'=>$id))->result();
+        // print_r($result);
+
+        if ($cek != 0){
+            $pass_didb = $this->encryption->decrypt($result[0]->password);
+
+            if ($pass_didb == $pass){
+                $data_session = array(
+                    'id'=>$result[0]->id_dosen,
+                    'nama'=>$result[0]->username,
+                    'bagian'=>$result[0]->level
+                );
+                $this->session->set_userdata('kaprodi',$data_session);
+                redirect('DashboardKaprodi');
+            }else{
+                redirect('Login');
+            }
+        }else{
+            redirect('Login');
+        }
+    }
 
 	function logout(){
         $this->session->unset_userdata('dosen');

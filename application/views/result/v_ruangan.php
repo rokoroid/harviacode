@@ -2,9 +2,93 @@
   <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
+
+    	<div class="col-sm-12"  style="margin-top:20px; margin-bottom:10px;">
+            <form id="filter" method="post">
+            <div class="form-group col-md-3">
+                <!-- <label>Gedung</label> -->
+                <select class="form-control" name="gedung" id="gedung">
+                    <option value="">Semua Gedung</option>
+                    <?php
+                    foreach ($dataGedung as $gedung){
+                    ?>
+                        <option value="<?php echo $gedung->id_gedung;?>"><?php echo $gedung->nama_gedung;?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <!-- <label>Ruangan</label> -->
+                <select class="form-control" name="ruang" id="ruang">
+                    <option value="">Semua Ruangan</option>
+                    <?php
+                    foreach ($dataRuangan as $ruang){
+                    ?>
+                        <option value="<?php echo $ruang->id_ruang;?>"><?php echo $ruang->nama_ruang;?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <button type="submit" name="button" class="btn btn-info">Filter</button>
+            </div>
+        	</form>
+        </div>
+
 <?php
 	foreach ($dataRuangan as $ruang) 
 	{
+
+		$ruang_senin_tujuh = $model_obj->ruang_senin_tujuh($ruang->id_ruang);
+        $ruang_senin_sembilan = $model_obj->ruang_senin_sembilan($ruang->id_ruang);
+        $ruang_senin_sebelas = $model_obj->ruang_senin_sebelas($ruang->id_ruang);
+        $ruang_senin_tigabelas = $model_obj->ruang_senin_tigabelas($ruang->id_ruang);
+        $ruang_senin_limabelas = $model_obj->ruang_senin_limabelas($ruang->id_ruang);
+        $ruang_senin_tujuhbelas = $model_obj->ruang_senin_tujuhbelas($ruang->id_ruang);
+        $ruang_senin_sembilanbelas = $model_obj->ruang_senin_sembilanbelas($ruang->id_ruang);
+
+        $ruang_selasa_tujuh = $model_obj->ruang_selasa_tujuh($ruang->id_ruang);
+        $ruang_selasa_sembilan = $model_obj->ruang_selasa_sembilan($ruang->id_ruang);
+        $ruang_selasa_sebelas = $model_obj->ruang_selasa_sebelas($ruang->id_ruang);
+        $ruang_selasa_tigabelas = $model_obj->ruang_selasa_tigabelas($ruang->id_ruang);
+        $ruang_selasa_limabelas = $model_obj->ruang_selasa_limabelas($ruang->id_ruang);
+        $ruang_selasa_tujuhbelas = $model_obj->ruang_selasa_tujuhbelas($ruang->id_ruang);
+        $ruang_selasa_sembilanbelas = $model_obj->ruang_selasa_sembilanbelas($ruang->id_ruang);
+
+        $ruang_rabu_tujuh = $model_obj->ruang_rabu_tujuh($ruang->id_ruang);
+        $ruang_rabu_sembilan = $model_obj->ruang_rabu_sembilan($ruang->id_ruang);
+        $ruang_rabu_sebelas = $model_obj->ruang_rabu_sebelas($ruang->id_ruang);
+        $ruang_rabu_tigabelas = $model_obj->ruang_rabu_tigabelas($ruang->id_ruang);
+        $ruang_rabu_limabelas = $model_obj->ruang_rabu_limabelas($ruang->id_ruang);
+        $ruang_rabu_tujuhbelas = $model_obj->ruang_rabu_tujuhbelas($ruang->id_ruang);
+        $ruang_rabu_sembilanbelas = $model_obj->ruang_rabu_sembilanbelas($ruang->id_ruang);
+
+        $ruang_kamis_tujuh = $model_obj->ruang_kamis_tujuh($ruang->id_ruang);
+        $ruang_kamis_sembilan = $model_obj->ruang_kamis_sembilan($ruang->id_ruang);
+        $ruang_kamis_sebelas = $model_obj->ruang_kamis_sebelas($ruang->id_ruang);
+        $ruang_kamis_tigabelas = $model_obj->ruang_kamis_tigabelas($ruang->id_ruang);
+        $ruang_kamis_limabelas = $model_obj->ruang_kamis_limabelas($ruang->id_ruang);
+        $ruang_kamis_tujuhbelas = $model_obj->ruang_kamis_tujuhbelas($ruang->id_ruang);
+        $ruang_kamis_sembilanbelas = $model_obj->ruang_kamis_sembilanbelas($ruang->id_ruang);
+
+        $ruang_jumat_tujuh = $model_obj->ruang_jumat_tujuh($ruang->id_ruang);
+        $ruang_jumat_sembilan = $model_obj->ruang_jumat_sembilan($ruang->id_ruang);
+        $ruang_jumat_sebelas = $model_obj->ruang_jumat_sebelas($ruang->id_ruang);
+        $ruang_jumat_tigabelas = $model_obj->ruang_jumat_tigabelas($ruang->id_ruang);
+        $ruang_jumat_limabelas = $model_obj->ruang_jumat_limabelas($ruang->id_ruang);
+        $ruang_jumat_tujuhbelas = $model_obj->ruang_jumat_tujuhbelas($ruang->id_ruang);
+        $ruang_jumat_sembilanbelas = $model_obj->ruang_jumat_sembilanbelas($ruang->id_ruang);
+
+        $ruang_sabtu_tujuh = $model_obj->ruang_sabtu_tujuh($ruang->id_ruang);
+        $ruang_sabtu_sembilan = $model_obj->ruang_sabtu_sembilan($ruang->id_ruang);
+        $ruang_sabtu_sebelas = $model_obj->ruang_sabtu_sebelas($ruang->id_ruang);
+        $ruang_sabtu_tigabelas = $model_obj->ruang_sabtu_tigabelas($ruang->id_ruang);
+        $ruang_sabtu_limabelas = $model_obj->ruang_sabtu_limabelas($ruang->id_ruang);
+        $ruang_sabtu_tujuhbelas = $model_obj->ruang_sabtu_tujuhbelas($ruang->id_ruang);
+        $ruang_sabtu_sembilanbelas = $model_obj->ruang_sabtu_sembilanbelas($ruang->id_ruang);
+
 ?>
     <div class="row">
 	<!-- /.col -->

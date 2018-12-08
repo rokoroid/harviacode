@@ -56,10 +56,11 @@
         <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
       </div>
       <div class="form-group">
-        <select class="form-control" id="akses" name="akses">
+            <select class="form-control" id="akses" name="akses">
                 <option value="">Pilih Akses</option>
+                <option value="Baaku">Baaku</option>
                 <option value="Dosen">Dosen</option>
-                <option value="BAAKU">BAAKU</option>
+                <option value="Kaprodi">Kaprodi</option>
             </select>
         <!-- /.col -->
         <br>

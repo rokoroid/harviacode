@@ -13,6 +13,11 @@ class Generate extends CI_Controller {
 		$this->load->model('M_hari');
 		$this->load->model('M_jam');
 		$this->load->model('M_result');
+
+		$userSession = $this->session->userdata('baaku');
+        if ($userSession['bagian'] != "staff"){
+            redirect('Login');
+        }
 	}
 
 	public function index(){
@@ -87,10 +92,7 @@ class Generate extends CI_Controller {
 				}	
 			}
 		}
-		$this->load->view('template/header');
-        $this->load->view('template/sidebar');
-        // $this->load->view('gedung/tb_gedung_list', $data);
-        $this->load->view('template/footer');
+		redirect('Result');
 	}
 
 }

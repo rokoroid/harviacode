@@ -2,9 +2,81 @@
   <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
+
+    	<div class="col-sm-12"  style="margin-top:20px; margin-bottom:10px;">
+            <form id="filter" method="post">
+            <div class="form-group col-md-3">
+                <!-- <label>Dosen</label> -->
+                <select class="form-control" name="dosen" id="dosen">
+                    <option value="">Semua Dosen</option>
+                    <?php
+                    foreach ($dataDosen as $dosen){
+                    ?>
+                        <option value="<?php echo $dosen->id_dosen;?>"><?php echo $dosen->gelar_depan;?> <?php echo $dosen->nama_dosen;?> <?php echo $dosen->gelar_belakang;?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <button type="submit" name="button" class="btn btn-info">Filter</button>
+            </div>
+        	</form>
+        </div>
+
+
 <?php
 	foreach ($dataDosen as $dosen) 
 	{
+
+		$dosen_senin_tujuh = $model_obj->dosen_senin_tujuh($dosen->id_dosen);
+		$dosen_senin_sembilan = $model_obj->dosen_senin_sembilan($dosen->id_dosen);
+		$dosen_senin_sebelas = $model_obj->dosen_senin_sebelas($dosen->id_dosen);
+		$dosen_senin_tigabelas = $model_obj->dosen_senin_tigabelas($dosen->id_dosen);
+		$dosen_senin_limabelas = $model_obj->dosen_senin_limabelas($dosen->id_dosen);
+		$dosen_senin_tujuhbelas = $model_obj->dosen_senin_tujuhbelas($dosen->id_dosen);
+		$dosen_senin_sembilanbelas = $model_obj->dosen_senin_sembilanbelas($dosen->id_dosen);
+
+		$dosen_selasa_tujuh = $model_obj->dosen_selasa_tujuh($dosen->id_dosen);
+		$dosen_selasa_sembilan = $model_obj->dosen_selasa_sembilan($dosen->id_dosen);
+		$dosen_selasa_sebelas = $model_obj->dosen_selasa_sebelas($dosen->id_dosen);
+		$dosen_selasa_tigabelas = $model_obj->dosen_selasa_tigabelas($dosen->id_dosen);
+		$dosen_selasa_limabelas = $model_obj->dosen_selasa_limabelas($dosen->id_dosen);
+		$dosen_selasa_tujuhbelas = $model_obj->dosen_selasa_tujuhbelas($dosen->id_dosen);
+		$dosen_selasa_sembilanbelas = $model_obj->dosen_selasa_sembilanbelas($dosen->id_dosen);
+
+		$dosen_rabu_tujuh = $model_obj->dosen_rabu_tujuh($dosen->id_dosen);
+		$dosen_rabu_sembilan = $model_obj->dosen_rabu_sembilan($dosen->id_dosen);
+		$dosen_rabu_sebelas = $model_obj->dosen_rabu_sebelas($dosen->id_dosen);
+		$dosen_rabu_tigabelas = $model_obj->dosen_rabu_tigabelas($dosen->id_dosen);
+		$dosen_rabu_limabelas = $model_obj->dosen_rabu_limabelas($dosen->id_dosen);
+		$dosen_rabu_tujuhbelas = $model_obj->dosen_rabu_tujuhbelas($dosen->id_dosen);
+		$dosen_rabu_sembilanbelas = $model_obj->dosen_rabu_sembilanbelas($dosen->id_dosen);
+
+		$dosen_kamis_tujuh = $model_obj->dosen_kamis_tujuh($dosen->id_dosen);
+		$dosen_kamis_sembilan = $model_obj->dosen_kamis_sembilan($dosen->id_dosen);
+		$dosen_kamis_sebelas = $model_obj->dosen_kamis_sebelas($dosen->id_dosen);
+		$dosen_kamis_tigabelas = $model_obj->dosen_kamis_tigabelas($dosen->id_dosen);
+		$dosen_kamis_limabelas = $model_obj->dosen_kamis_limabelas($dosen->id_dosen);
+		$dosen_kamis_tujuhbelas = $model_obj->dosen_kamis_tujuhbelas($dosen->id_dosen);
+		$dosen_kamis_sembilanbelas = $model_obj->dosen_kamis_sembilanbelas($dosen->id_dosen);
+
+		$dosen_jumat_tujuh = $model_obj->dosen_jumat_tujuh($dosen->id_dosen);
+		$dosen_jumat_sembilan = $model_obj->dosen_jumat_sembilan($dosen->id_dosen);
+		$dosen_jumat_sebelas = $model_obj->dosen_jumat_sebelas($dosen->id_dosen);
+		$dosen_jumat_tigabelas = $model_obj->dosen_jumat_tigabelas($dosen->id_dosen);
+		$dosen_jumat_limabelas = $model_obj->dosen_jumat_limabelas($dosen->id_dosen);
+		$dosen_jumat_tujuhbelas = $model_obj->dosen_jumat_tujuhbelas($dosen->id_dosen);
+		$dosen_jumat_sembilanbelas = $model_obj->dosen_jumat_sembilanbelas($dosen->id_dosen);
+
+		$dosen_sabtu_tujuh = $model_obj->dosen_sabtu_tujuh($dosen->id_dosen);
+		$dosen_sabtu_sembilan = $model_obj->dosen_sabtu_sembilan($dosen->id_dosen);
+		$dosen_sabtu_sebelas = $model_obj->dosen_sabtu_sebelas($dosen->id_dosen);
+		$dosen_sabtu_tigabelas = $model_obj->dosen_sabtu_tigabelas($dosen->id_dosen);
+		$dosen_sabtu_limabelas = $model_obj->dosen_sabtu_limabelas($dosen->id_dosen);
+		$dosen_sabtu_tujuhbelas = $model_obj->dosen_sabtu_tujuhbelas($dosen->id_dosen);
+		$dosen_sabtu_sembilanbelas = $model_obj->dosen_sabtu_sembilanbelas($dosen->id_dosen);
+
 ?>
     <div class="row">
 	<!-- /.col -->

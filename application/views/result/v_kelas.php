@@ -2,9 +2,90 @@
   <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
+
+    	<div class="col-sm-12"  style="margin-top:20px; margin-bottom:10px;">
+            <form id="filter" method="post">
+            <div class="form-group col-md-3">
+                <!-- <label>Angkatan</label> -->
+                <select class="form-control" name="angkatan" id="angkatan">
+                    <option value="">Semua Angkatan</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2015">2016</option>
+                    <option value="2015">2017</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <!-- <label>Kelas</label> -->
+                <select class="form-control" name="kelas" id="kelas">
+                    <option value="">Semua Kelas</option>
+                    <?php
+                    foreach ($dataKelas as $kelas){
+                    ?>
+                        <option value="<?php echo $kelas->id_kelas;?>"><?php echo $kelas->nama_kelas;?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <button type="submit" name="button" class="btn btn-info">Filter</button>
+            </div>
+        	</form>
+        </div>
+
 <?php
 	foreach ($dataKelas as $kelas) 
 	{
+
+		$kelas_senin_tujuh = $model_obj->kelas_senin_tujuh($kelas->id_kelas);
+		$kelas_senin_sembilan = $model_obj->kelas_senin_sembilan($kelas->id_kelas);
+		$kelas_senin_sebelas = $model_obj->kelas_senin_sebelas($kelas->id_kelas);
+		$kelas_senin_tigabelas = $model_obj->kelas_senin_tigabelas($kelas->id_kelas);
+		$kelas_senin_limabelas = $model_obj->kelas_senin_limabelas($kelas->id_kelas);
+		$kelas_senin_tujuhbelas = $model_obj->kelas_senin_tujuhbelas($kelas->id_kelas);
+		$kelas_senin_sembilanbelas = $model_obj->kelas_senin_sembilanbelas($kelas->id_kelas);
+
+		$kelas_selasa_tujuh = $model_obj->kelas_selasa_tujuh($kelas->id_kelas);
+		$kelas_selasa_sembilan = $model_obj->kelas_selasa_sembilan($kelas->id_kelas);
+		$kelas_selasa_sebelas = $model_obj->kelas_selasa_sebelas($kelas->id_kelas);
+		$kelas_selasa_tigabelas = $model_obj->kelas_selasa_tigabelas($kelas->id_kelas);
+		$kelas_selasa_limabelas = $model_obj->kelas_selasa_limabelas($kelas->id_kelas);
+		$kelas_selasa_tujuhbelas = $model_obj->kelas_selasa_tujuhbelas($kelas->id_kelas);
+		$kelas_selasa_sembilanbelas = $model_obj->kelas_selasa_sembilanbelas($kelas->id_kelas);
+
+		$kelas_rabu_tujuh = $model_obj->kelas_rabu_tujuh($kelas->id_kelas);
+		$kelas_rabu_sembilan = $model_obj->kelas_rabu_sembilan($kelas->id_kelas);
+		$kelas_rabu_sebelas = $model_obj->kelas_rabu_sebelas($kelas->id_kelas);
+		$kelas_rabu_tigabelas = $model_obj->kelas_rabu_tigabelas($kelas->id_kelas);
+		$kelas_rabu_limabelas = $model_obj->kelas_rabu_limabelas($kelas->id_kelas);
+		$kelas_rabu_tujuhbelas = $model_obj->kelas_rabu_tujuhbelas($kelas->id_kelas);
+		$kelas_rabu_sembilanbelas = $model_obj->kelas_rabu_sembilanbelas($kelas->id_kelas);
+
+		$kelas_kamis_tujuh = $model_obj->kelas_kamis_tujuh($kelas->id_kelas);
+		$kelas_kamis_sembilan = $model_obj->kelas_kamis_sembilan($kelas->id_kelas);
+		$kelas_kamis_sebelas = $model_obj->kelas_kamis_sebelas($kelas->id_kelas);
+		$kelas_kamis_tigabelas = $model_obj->kelas_kamis_tigabelas($kelas->id_kelas);
+		$kelas_kamis_limabelas = $model_obj->kelas_kamis_limabelas($kelas->id_kelas);
+		$kelas_kamis_tujuhbelas = $model_obj->kelas_kamis_tujuhbelas($kelas->id_kelas);
+		$kelas_kamis_sembilanbelas = $model_obj->kelas_kamis_sembilanbelas($kelas->id_kelas);
+
+		$kelas_jumat_tujuh = $model_obj->kelas_jumat_tujuh($kelas->id_kelas);
+		$kelas_jumat_sembilan = $model_obj->kelas_jumat_sembilan($kelas->id_kelas);
+		$kelas_jumat_sebelas = $model_obj->kelas_jumat_sebelas($kelas->id_kelas);
+		$kelas_jumat_tigabelas = $model_obj->kelas_jumat_tigabelas($kelas->id_kelas);
+		$kelas_jumat_limabelas = $model_obj->kelas_jumat_limabelas($kelas->id_kelas);
+		$kelas_jumat_tujuhbelas = $model_obj->kelas_jumat_tujuhbelas($kelas->id_kelas);
+		$kelas_jumat_sembilanbelas = $model_obj->kelas_jumat_sembilanbelas($kelas->id_kelas);
+
+		$kelas_sabtu_tujuh = $model_obj->kelas_sabtu_tujuh($kelas->id_kelas);
+		$kelas_sabtu_sembilan = $model_obj->kelas_sabtu_sembilan($kelas->id_kelas);
+		$kelas_sabtu_sebelas = $model_obj->kelas_sabtu_sebelas($kelas->id_kelas);
+		$kelas_sabtu_tigabelas = $model_obj->kelas_sabtu_tigabelas($kelas->id_kelas);
+		$kelas_sabtu_limabelas = $model_obj->kelas_sabtu_limabelas($kelas->id_kelas);
+		$kelas_sabtu_tujuhbelas = $model_obj->kelas_sabtu_tujuhbelas($kelas->id_kelas);
+		$kelas_sabtu_sembilanbelas = $model_obj->kelas_sabtu_sembilanbelas($kelas->id_kelas);
+
 ?>
     <div class="row">
 	<!-- /.col -->

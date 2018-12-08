@@ -17,12 +17,41 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="<?php echo base_url('Dashboardbaaku') ?>">
+          <a href="<?php echo base_url('Dashboardkaprodi') ?>">
             <i class="fa fa-home"></i>
             <span>Home</span>
           </a>
         </li>
-        <li class="active treeview">
+        <!-- <li>
+          <a href="<?php echo base_url('Kesanggupan') ?>">
+            <i class="fa fa-home"></i>
+            <span>Kesanggupan Mengajar</span>
+          </a>
+        </li> -->
+        <li><a href=""><i class="fa fa-users"></i> Validasi
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu ">
+              <li><a href="<?php echo base_url('Matakuliah') ?>"><i class="fa fa-users"></i> Matakuliah</a></li>
+              <li><a href="<?php echo base_url('Kelas') ?>"><i class="fa fa-users"></i> Kelas</a></li>
+            </ul>
+
+            <li><a href="<?php echo base_url('Jadwal') ?>"><i class="fa fa-users"></i> Jadwal</a></li>
+            <li><a href="<?php echo base_url('Pengajar') ?>"><i class="fa fa-users"></i> Pengajar</a></li>
+
+        <li><a href=""><i class="fa fa-users"></i> Hasil
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu ">
+              <li><a href="<?php echo base_url('Result/hasil_kelas') ?>"><i class="fa fa-users"></i> Kelas</a></li>
+              <li><a href="<?php echo base_url('Result/hasil_dosen') ?>"><i class="fa fa-users"></i> Dosen</a></li>
+              <li><a href="<?php echo base_url('Result/hasil_ruangan') ?>"><i class="fa fa-users"></i> Ruangan</a></li>
+            </ul>
+        <!-- <li class="active treeview">
           <a href="#">
             <i class="fa fa-hdd-o"></i> <span>Data Master</span>
             <span class="pull-right-container">
@@ -42,7 +71,7 @@
                 </a>
                 <ul class="treeview-menu ">
                   <li><a href="<?php echo base_url('Dosen') ?>"><i class="fa fa-users"></i> Data Dosen</a></li>
-                  <li><a href="<?php echo base_url('Users') ?>"><i class="fa fa-users"></i> Akun Dosen</a></li>
+                  <li><a href="<?php echo base_url('User') ?>"><i class="fa fa-users"></i> Akun Dosen</a></li>
                 </ul>
             </li>
             
@@ -70,7 +99,7 @@
                     <li><a href="<?php echo base_url('Jam') ?>"><i class="fa fa-users"></i> Jam</a></li>
                     <li><a href="<?php echo base_url('Waktu') ?>"><i class="fa fa-users"></i> Data Waktu</a></li>
                   </ul>
-                  <!-- <li><a href=""><i class="fa fa-users"></i> Validasi
+                  <li><a href=""><i class="fa fa-users"></i> Validasi
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
@@ -78,24 +107,13 @@
                   <ul class="treeview-menu ">
                     <li><a href="<?php echo base_url('Matakuliah') ?>"><i class="fa fa-users"></i> Matakuliah</a></li>
                     <li><a href="<?php echo base_url('Kelas') ?>"><i class="fa fa-users"></i> Kelas</a></li>
-                  </ul> -->
+                  </ul>
 
                   <li><a href="<?php echo base_url('Jadwal') ?>"><i class="fa fa-users"></i> Jadwal</a></li>
                   <li><a href="<?php echo base_url('Pengajar') ?>"><i class="fa fa-users"></i> Pengajar</a></li>
                   <li><a href="<?php echo base_url('Generate') ?>"><i class="fa fa-users"></i> Generate</a></li>
-
-                  <li><a href=""><i class="fa fa-users"></i> Hasil
-                  <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </span>
-                  </a>
-                  <ul class="treeview-menu ">
-                    <li><a href="<?php echo base_url('Result/hasil_kelas') ?>"><i class="fa fa-users"></i> Kelas</a></li>
-                    <li><a href="<?php echo base_url('Result/hasil_dosen') ?>"><i class="fa fa-users"></i> Dosen</a></li>
-                    <li><a href="<?php echo base_url('Result/hasil_ruangan') ?>"><i class="fa fa-users"></i> Ruangan</a></li>
-                  </ul>
                 </ul>
-            </li>
+            </li> -->
 
         <!-- <li>
           <a href="#">
