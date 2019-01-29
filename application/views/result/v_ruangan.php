@@ -98,6 +98,8 @@
 	            <i class="fa fa-hdd-o fa-fw"></i>
 	              <h3 class="box-title"><?php echo $ruang->nama_ruang ?></h3>
 	              <div class="box-tools pull-right">
+	                <!-- <button class="btn btn-box-tool" type="submit"><i class="fa fa-print"></i></button> -->
+	                <a href="<?php echo base_url();?>result/cetak_ruangan/<?php echo $ruang->id_ruang;?>"><button class="btn btn-box-tool" type="submit"><i class="fa fa-print"></i></button></a>
 	                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 	              </div>
 	              <!-- /.box-tools -->

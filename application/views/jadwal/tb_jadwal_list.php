@@ -59,7 +59,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('jadwal/create'),'Tambah Data Jadwal', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('jadwal/create'),'Tambah Data Jadwal', 'class="btn btn-primary"'); ?> -->
+                <a href="<?php echo base_url();?>jadwal/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Jadwal</button></a>
             </div>
             <div class="col-md-1 text-right">
             </div>
@@ -107,12 +108,14 @@
                     <td><?php echo $jadwal->nama_makul ?></td>
                     <td><?php echo $jadwal->nama_kelas ?></td>
         			<td style="text-align:center" width="200px">
+                        <a href="<?php echo base_url();?>jadwal/update/<?php echo $jadwal->id_jadwal;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>jadwal/delete/<?php echo $jadwal->id_jadwal;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
         				<?php 
         				// echo anchor(site_url('jadwal/read/'.$jadwal->id_jadwal),'Read'); 
         				// echo ' | '; 
-        				echo anchor(site_url('jadwal/update/'.$jadwal->id_jadwal),'Edit'); 
-        				echo ' | '; 
-        				echo anchor(site_url('jadwal/delete/'.$jadwal->id_jadwal),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+        				// echo anchor(site_url('jadwal/update/'.$jadwal->id_jadwal),'Edit'); 
+        				// echo ' | '; 
+        				// echo anchor(site_url('jadwal/delete/'.$jadwal->id_jadwal),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
         				?>
         			</td>
         		</tr>

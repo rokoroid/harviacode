@@ -11,7 +11,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('prodi/create'),'Tambah Data Prodi', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('prodi/create'),'Tambah Data Prodi', 'class="btn btn-primary"'); ?> -->
+                <a href="<?php echo base_url();?>prodi/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Prodi</button></a>
             </div>
             <div class="col-md-1 text-right">
             </div>
@@ -69,12 +70,14 @@
         			<td><?php echo $prodi->keterangan ?></td>
         			<td><?php echo $prodi->aktif ?></td>
         			<td style="text-align:center" width="200px">
+                        <a href="<?php echo base_url();?>prodi/update/<?php echo $prodi->id_prodi;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>prodi/delete/<?php echo $prodi->id_prodi;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
         				<?php 
         				// echo anchor(site_url('prodi/read/'.$prodi->id_prodi),'Read'); 
         				// echo ' | '; 
-        				echo anchor(site_url('prodi/update/'.$prodi->id_prodi),'Edit'); 
-        				echo ' | '; 
-        				echo anchor(site_url('prodi/delete/'.$prodi->id_prodi),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+        				// echo anchor(site_url('prodi/update/'.$prodi->id_prodi),'Edit'); 
+        				// echo ' | '; 
+        				// echo anchor(site_url('prodi/delete/'.$prodi->id_prodi),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
         				?>
         			</td>
         		</tr>

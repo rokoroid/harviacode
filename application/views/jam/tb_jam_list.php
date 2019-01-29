@@ -11,7 +11,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('jam/create'),'Tambah Data Jam', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('jam/create'),'Tambah Data Jam', 'class="btn btn-primary"'); ?> -->
+                <a href="<?php echo base_url();?>jam/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Jam</button></a>
             </div>
             
             <div class="col-md-1 text-right">
@@ -58,12 +59,14 @@
         			<td><?php echo $jam->kode_jam ?></td>
         			<td><?php echo $jam->nama_jam ?></td>
         			<td style="text-align:center" width="200px">
+                        <a href="<?php echo base_url();?>jam/update/<?php echo $jam->id_jam;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>jam/delete/<?php echo $jam->id_jam;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
         				<?php 
         				// echo anchor(site_url('jam/read/'.$jam->id_jam),'Read'); 
         				// echo ' | '; 
-        				echo anchor(site_url('jam/update/'.$jam->id_jam),'Edit'); 
-        				echo ' | '; 
-        				echo anchor(site_url('jam/delete/'.$jam->id_jam),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+        				// echo anchor(site_url('jam/update/'.$jam->id_jam),'Edit'); 
+        				// echo ' | '; 
+        				// echo anchor(site_url('jam/delete/'.$jam->id_jam),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
         				?>
         			</td>
         		</tr>

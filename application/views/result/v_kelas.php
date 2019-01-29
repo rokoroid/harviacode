@@ -95,6 +95,8 @@
 	            <i class="fa fa-hdd-o fa-fw"></i>
 	              <h3 class="box-title"><?php echo $kelas->nama_kelas ?></h3>
 	              <div class="box-tools pull-right">
+	                <!-- <button class="btn btn-box-tool" type="submit"><i class="fa fa-print"></i></button> -->
+	                <a href="<?php echo base_url();?>result/cetak_kelas/<?php echo $kelas->id_kelas;?>"><button class="btn btn-box-tool" type="submit"><i class="fa fa-print"></i></button></a>
 	                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 	              </div>
 	              <!-- /.box-tools -->

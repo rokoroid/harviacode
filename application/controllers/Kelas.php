@@ -11,8 +11,13 @@ class Kelas extends CI_Controller
         $this->load->model('M_kelas');
         $this->load->library('form_validation');
 
-        $userSession = $this->session->userdata('baaku');
-        if ($userSession['bagian'] != "staff"){
+        // $userSession = $this->session->userdata('baaku');
+        // if ($userSession['bagian'] != "staff"){
+        //     redirect('Login');
+        // }
+
+        $userSession = $this->session->userdata('kaprodi');
+        if ($userSession['bagian'] != "kaprodi"){
             redirect('Login');
         }
     }
@@ -45,8 +50,8 @@ class Kelas extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar');
+        $this->load->view('template/header3');
+        $this->load->view('template/sidebar3');
         $this->load->view('kelas/tb_kelas_list', $data);
         $this->load->view('template/footer');
     }
@@ -58,9 +63,10 @@ class Kelas extends CI_Controller
             'action' => site_url('kelas/create_action'),
 	    'id_kelas' => set_value('id_kelas'),
 	    'nama_kelas' => set_value('nama_kelas'),
+        'angkatan' => set_value('angkatan'),
 	);
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar');
+        $this->load->view('template/header3');
+        $this->load->view('template/sidebar3');
         $this->load->view('kelas/tb_kelas_form', $data);
         $this->load->view('template/footer');
     }
@@ -74,6 +80,7 @@ class Kelas extends CI_Controller
         } else {
             $data = array(
 		'nama_kelas' => $this->input->post('nama_kelas',TRUE),
+        'angkatan' => $this->input->post('angkatan',TRUE),
 	    );
 
             $this->M_kelas->insert($data);
@@ -92,9 +99,10 @@ class Kelas extends CI_Controller
                 'action' => site_url('kelas/update_action'),
 		'id_kelas' => set_value('id_kelas', $row->id_kelas),
 		'nama_kelas' => set_value('nama_kelas', $row->nama_kelas),
+        'angkatan' => set_value('angkatan', $row->angkatan),
 	    );
-            $this->load->view('template/header');
-            $this->load->view('template/sidebar');
+            $this->load->view('template/header3');
+            $this->load->view('template/sidebar3');
             $this->load->view('kelas/tb_kelas_form', $data);
             $this->load->view('template/footer');
         } else {
@@ -112,6 +120,7 @@ class Kelas extends CI_Controller
         } else {
             $data = array(
 		'nama_kelas' => $this->input->post('nama_kelas',TRUE),
+        'angkatan' => $this->input->post('angkatan',TRUE),
 	    );
 
             $this->M_kelas->update($this->input->post('id_kelas', TRUE), $data);

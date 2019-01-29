@@ -35,7 +35,7 @@
             <li class="active"><a href="<?php echo base_url('Semester') ?>"><i class="fa fa-bar-chart"></i>Semester</a></li>
             
             <li>
-              <a href="#"><i class="fa fa-user-secret"></i> Dosen
+              <a href="#"><i class="fa fa-user-secret"></i> <span>Dosen</span>
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
@@ -54,13 +54,13 @@
         </li>
 
             <li>
-              <a href="#"><i class="fa fa-hourglass-end"></i> Jadwal
+              <a href="#"><i class="fa fa-hourglass-end"></i> <span>Jadwal</span>
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
                 </a>
                 <ul class="treeview-menu ">
-                  <li><a href=""><i class="fa fa-users"></i> Waktu
+                  <li><a href=""><i class="fa fa-users"></i> <span>Waktu</span>
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
@@ -80,11 +80,11 @@
                     <li><a href="<?php echo base_url('Kelas') ?>"><i class="fa fa-users"></i> Kelas</a></li>
                   </ul> -->
 
-                  <li><a href="<?php echo base_url('Jadwal') ?>"><i class="fa fa-users"></i> Jadwal</a></li>
-                  <li><a href="<?php echo base_url('Pengajar') ?>"><i class="fa fa-users"></i> Pengajar</a></li>
+<!--                   <li><a href="<?php echo base_url('Jadwal') ?>"><i class="fa fa-users"></i> Jadwal</a></li>
+                  <li><a href="<?php echo base_url('Pengajar') ?>"><i class="fa fa-users"></i> Pengajar</a></li> -->
                   <li><a href="<?php echo base_url('Generate') ?>"><i class="fa fa-users"></i> Generate</a></li>
 
-                  <li><a href=""><i class="fa fa-users"></i> Hasil
+                  <li><a href=""><i class="fa fa-users"></i> <span>Hasil</span>
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>

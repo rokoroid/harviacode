@@ -8,13 +8,13 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>Validasi Matakuliah</h3>
+              <h3>Validasi</h3>
               <br><br>
             </div>
             <!-- <div class="icon">
               <i class="ion ion-school"></i>
             </div> -->
-            <a href="<?php echo base_url('Matakuliah') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url('Validasi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

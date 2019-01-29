@@ -14,10 +14,11 @@ class Pengajar extends CI_Controller
         $this->load->model('M_prodi');
         $this->load->model('M_dosen');
         $this->load->model('M_matakuliah');
+        $this->load->model('M_kelas');
         $this->load->library('form_validation');
 
-        $userSession = $this->session->userdata('baaku');
-        if ($userSession['bagian'] != "staff"){
+        $userSession = $this->session->userdata('kaprodi');
+        if ($userSession['bagian'] != "kaprodi"){
             redirect('Login');
         }
     }
@@ -57,8 +58,8 @@ class Pengajar extends CI_Controller
             'dataProdi' => $prodi,
             'dataSemester' => $semester,
         );
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar');
+        $this->load->view('template/header3');
+        $this->load->view('template/sidebar3');
         $this->load->view('pengajar/tb_pengajar_list', $data);
         $this->load->view('template/footer');
     }
@@ -74,14 +75,14 @@ class Pengajar extends CI_Controller
         'id_kelas' => set_value('id_kelas'),
         'id_semester' => set_value('id_semester'),
         'id_makul' => set_value('id_makul'),
-        'nama_kelas' => set_value('nama_kelas'),
+        'id_kelas' => set_value('id_kelas'),
         'id_dosen' => set_value('id_dosen'),
         'dataSemester' => $semester,
         'dataMakul' => $makul,
         'dataDosen' => $dosen,
     );
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar');
+        $this->load->view('template/header3');
+        $this->load->view('template/sidebar3');
         $this->load->view('pengajar/tb_pengajar_form', $data);
         $this->load->view('template/footer');
     }
@@ -96,7 +97,7 @@ class Pengajar extends CI_Controller
             $data = array(
         'id_semester' => $this->input->post('id_semester',TRUE),
         'id_makul' => $this->input->post('id_makul',TRUE),
-        'nama_kelas' => $this->input->post('nama_kelas',TRUE),
+        'id_kelas' => $this->input->post('id_kelas',TRUE),
         'id_dosen' => $this->input->post('id_dosen',TRUE),
         );
 
@@ -112,27 +113,29 @@ class Pengajar extends CI_Controller
         $semester = $this->M_semester->getallsemester();
         $dosen = $this->M_dosen->getalldosen();
         $makul = $this->M_matakuliah->getallmakul();
+        $kelas = $this->M_kelas->getallkelas();
 
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('jadwal/update_action'),
+                'action' => site_url('pengajar/update_action'),
         'id_kelas' => set_value('id_kelas', $row->id_kelas),
         'id_semester' => set_value('id_semester', $row->id_semester),
         'id_makul' => set_value('id_makul', $row->id_makul),
-        'nama_kelas' => set_value('nama_kelas', $row->nama_kelas),
+        'id_kelas' => set_value('id_kelas', $row->id_kelas),
         'id_dosen' => set_value('id_dosen', $row->id_dosen),
         'dataSemester' => $semester,
         'dataMakul' => $makul,
         'dataDosen' => $dosen,
+        'dataKelas' => $kelas,
         );
-            $this->load->view('template/header');
-            $this->load->view('template/sidebar');
+            $this->load->view('template/header3');
+            $this->load->view('template/sidebar3');
             $this->load->view('pengajar/tb_pengajar_form', $data);
             $this->load->view('template/footer');
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('jadwal'));
+            redirect(site_url('pengajar'));
         }
     }
     
@@ -146,7 +149,7 @@ class Pengajar extends CI_Controller
             $data = array(
         'id_semester' => $this->input->post('id_semester',TRUE),
         'id_makul' => $this->input->post('id_makul',TRUE),
-        'nama_kelas' => $this->input->post('nama_kelas',TRUE),
+        'id_kelas' => $this->input->post('id_kelas',TRUE),
         'id_dosen' => $this->input->post('id_dosen',TRUE),
         );
 
@@ -163,10 +166,10 @@ class Pengajar extends CI_Controller
         if ($row) {
             $this->M_jadwal->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('jadwal'));
+            redirect(site_url('pengajar'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('jadwal'));
+            redirect(site_url('pengajar'));
         }
     }
 

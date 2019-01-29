@@ -11,7 +11,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('dosen/create'),'Tambah Data Dosen', 'class="btn btn-primary"'); ?> 
+                <!-- <?php echo anchor(site_url('dosen/create'),'Tambah Data Dosen', 'class="btn btn-primary"'); ?>  -->
+                <a href="<?php echo base_url();?>dosen/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Dosen</button></a>
             </div>
             <div class="col-md-1 text-right">
             </div>
@@ -74,12 +75,15 @@
                     <td><?php echo $dosen->pendidikan_terakhir ?></td>
                     <td><?php echo $dosen->bidang_ilmu ?></td>
                     <td style="text-align:center" width="200px">
+                        <a href="<?php echo base_url();?>dosen/update/<?php echo $dosen->id_dosen;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>dosen/delete/<?php echo $dosen->id_dosen;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
+
                         <?php 
                         // echo anchor(site_url('dosen/read/'.$dosen->id_dosen),'Read'); 
                         // echo ' | '; 
-                        echo anchor(site_url('dosen/update/'.$dosen->id_dosen),'Edit'); 
-                        echo ' | '; 
-                        echo anchor(site_url('dosen/delete/'.$dosen->id_dosen),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                        // echo anchor(site_url('dosen/update/'.$dosen->id_dosen),'Edit'); 
+                        // echo ' | '; 
+                        // echo anchor(site_url('dosen/delete/'.$dosen->id_dosen),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                         ?>
                     </td>
                 </tr>

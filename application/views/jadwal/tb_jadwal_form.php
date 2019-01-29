@@ -45,7 +45,7 @@
         <div class="col-md-6 form-group">
             <label for="int">Nama Kelas <?php echo form_error('id_kelas') ?></label>
             <!-- <input type="text" class="form-control" name="id_makul" id="id_makul" placeholder="Id Makul" value="<?php echo $id_makul; ?>" /> -->
-            <select class="form-control" name="id_makul" id="id_makul">
+            <select class="form-control" name="id_kelas" id="id_kelas">
                 <option value="">Pilih Kelas</option>
                 <?php
                 foreach ($dataKelas as $kelas){
@@ -78,8 +78,8 @@
         </div> -->
         <div class="col-md-12" style="text-align: right;">
     	    <input type="hidden" name="id_jadwal" value="<?php echo $id_jadwal; ?>" /> 
-    	    <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-    	    <a href="<?php echo site_url('jadwal') ?>" class="btn btn-default">Cancel</a>
+    	    <button type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i> <?php echo $button ?></button> 
+    	    <a href="<?php echo site_url('jadwal') ?>" class="btn btn-danger"><i class="fa fa-close fa-fw"></i> Cancel</a>
         </div>
         </div>
 	</form>

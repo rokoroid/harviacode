@@ -51,8 +51,22 @@
             <input type="text" class="form-control" name="id_makul" id="id_makul" placeholder="Id Makul" value="<?php echo $id_makul; ?>" />
         </div> -->
         <div class="col-md-6 form-group">
-            <label for="varchar">Nama Kelas <?php echo form_error('nama_kelas') ?></label>
-            <input type="text" class="form-control" name="nama_kelas" id="nama_kelas" placeholder="Nama Kelas" value="<?php echo $nama_kelas; ?>" />
+            <label for="varchar">Nama Kelas <?php echo form_error('id_kelas') ?></label>
+            <!-- <input type="text" class="form-control" name="id_kelas" id="id_kelas" placeholder="Id Kelas" value="<?php echo $id_kelas; ?>" /> -->
+            <select class="form-control" name="id_kelas" id="id_kelas">
+                <option value="NULL">Semua Kelas</option>
+                <?php
+                foreach ($dataKelas as $kelas){
+                    $selected = '';
+                    if ($kelas->id_kelas == $id_kelas){
+                        $selected = 'selected';
+                    }
+                ?>
+                    <option value="<?php echo $kelas->id_kelas;?>" <?php echo $selected;?>><?php echo $kelas->nama_kelas;?></option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
         <!-- <div class="form-group">
             <label for="int">Id Dosen <?php echo form_error('id_dosen') ?></label>
@@ -78,8 +92,8 @@
         </div>
         <div class="col-md-12" style="text-align: right;">
             <input type="hidden" name="id_kelas" value="<?php echo $id_kelas; ?>" /> 
-            <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-            <a href="<?php echo site_url('pengajar') ?>" class="btn btn-default">Cancel</a>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i> <?php echo $button ?></button> 
+            <a href="<?php echo site_url('pengajar') ?>" class="btn btn-danger"><i class="fa fa-close fa-fw"></i> Cancel</a>
         </div>
         </div>
     </form>

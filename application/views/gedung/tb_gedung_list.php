@@ -11,7 +11,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('gedung/create'),'Tambah Data Gedung', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('gedung/create'),'Tambah Data Gedung', 'class="btn btn-primary"'); ?> -->
+                <a href="<?php echo base_url();?>gedung/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Gedung</button></a>
             </div>
             <div class="col-md-1 text-right">
             </div>
@@ -59,12 +60,14 @@
         			<td><?php echo $gedung->nama_gedung ?></td>
         			<td><?php echo $gedung->keterangan ?></td>
         			<td style="text-align:center" width="200px">
+                        <a href="<?php echo base_url();?>gedung/update/<?php echo $gedung->id_gedung;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>gedung/delete/<?php echo $gedung->id_gedung;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
         				<?php 
         				// echo anchor(site_url('gedung/read/'.$gedung->id_gedung),'Read'); 
         				// echo ' | '; 
-        				echo anchor(site_url('gedung/update/'.$gedung->id_gedung),'Edit'); 
-        				echo ' | '; 
-        				echo anchor(site_url('gedung/delete/'.$gedung->id_gedung),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+        				// echo anchor(site_url('gedung/update/'.$gedung->id_gedung),'Edit'); 
+        				// echo ' | '; 
+        				// echo anchor(site_url('gedung/delete/'.$gedung->id_gedung),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
         				?>
         			</td>
 		        </tr>

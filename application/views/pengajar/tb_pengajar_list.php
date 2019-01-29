@@ -110,12 +110,14 @@
                     <td><?php echo $jadwal->gelar_depan ?> <?php echo $jadwal->nama_dosen ?> <?php echo $jadwal->gelar_belakang ?>
 
                     <td style="text-align:center" width="200px">
+                        <a href="<?php echo base_url();?>jadwal/update/<?php echo $jadwal->id_kelas;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>jadwal/delete/<?php echo $jadwal->id_kelas;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
                         <?php 
                         // echo anchor(site_url('jadwal/read/'.$jadwal->id_kelas),'Read'); 
                         // echo ' | '; 
-                        echo anchor(site_url('pengajar/update/'.$jadwal->id_kelas),'Edit'); 
-                        echo ' | '; 
-                        echo anchor(site_url('pengajar/delete/'.$jadwal->id_kelas),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                        // echo anchor(site_url('pengajar/update/'.$jadwal->id_kelas),'Edit'); 
+                        // echo ' | '; 
+                        // echo anchor(site_url('pengajar/delete/'.$jadwal->id_kelas),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
                         ?>
                     </td>
                 </tr>

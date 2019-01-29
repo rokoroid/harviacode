@@ -129,7 +129,7 @@ class Login extends CI_Controller {
 
             if ($pass_didb == $pass){
                 $data_session = array(
-                    'id'=>$result[0]->id_dosen,
+                    'id'=>"Kaprodi",
                     'nama'=>$result[0]->username,
                     'bagian'=>$result[0]->level
                 );

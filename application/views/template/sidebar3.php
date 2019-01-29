@@ -28,20 +28,20 @@
             <span>Kesanggupan Mengajar</span>
           </a>
         </li> -->
-        <li><a href=""><i class="fa fa-users"></i> Validasi
+        <li><a href=""><i class="fa fa-users"></i> <span>Validasi</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
             </a>
             <ul class="treeview-menu ">
-              <li><a href="<?php echo base_url('Matakuliah') ?>"><i class="fa fa-users"></i> Matakuliah</a></li>
+              <li><a href="<?php echo base_url('Validasi') ?>"><i class="fa fa-users"></i> Matakuliah</a></li>
               <li><a href="<?php echo base_url('Kelas') ?>"><i class="fa fa-users"></i> Kelas</a></li>
             </ul>
 
             <li><a href="<?php echo base_url('Jadwal') ?>"><i class="fa fa-users"></i> Jadwal</a></li>
             <li><a href="<?php echo base_url('Pengajar') ?>"><i class="fa fa-users"></i> Pengajar</a></li>
 
-        <li><a href=""><i class="fa fa-users"></i> Hasil
+        <li><a href=""><i class="fa fa-users"></i> <span>Hasil</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -51,6 +51,7 @@
               <li><a href="<?php echo base_url('Result/hasil_dosen') ?>"><i class="fa fa-users"></i> Dosen</a></li>
               <li><a href="<?php echo base_url('Result/hasil_ruangan') ?>"><i class="fa fa-users"></i> Ruangan</a></li>
             </ul>
+            
         <!-- <li class="active treeview">
           <a href="#">
             <i class="fa fa-hdd-o"></i> <span>Data Master</span>

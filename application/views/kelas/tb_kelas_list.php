@@ -11,7 +11,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('kelas/create'),'Tambah Data Kelas', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('kelas/create'),'Tambah Data Kelas', 'class="btn btn-primary"'); ?> -->
+                <a href="<?php echo base_url();?>kelas/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Kelas</button></a>
             </div>
             
             <div class="col-md-1 text-right">
@@ -44,6 +45,7 @@
             <tr>
                 <th>No</th>
         		<th>Nama Kelas</th>
+                <th>Angkatan</th>
         		<th>Action</th>
             </tr>
         </thead>
@@ -55,13 +57,16 @@
                 <tr>
         			<td width="80px"><?php echo ++$start ?></td>
         			<td><?php echo $kelas->nama_kelas ?></td>
+                    <td><?php echo $kelas->angkatan ?></td>
         			<td style="text-align:center" width="200px">
+                        <a href="<?php echo base_url();?>kelas/update/<?php echo $kelas->id_kelas;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>kelas/delete/<?php echo $kelas->id_kelas;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
         				<?php 
         				// echo anchor(site_url('kelas/read/'.$kelas->id_kelas),'Read'); 
         				// echo ' | '; 
-        				echo anchor(site_url('kelas/update/'.$kelas->id_kelas),'Edit'); 
-        				echo ' | '; 
-        				echo anchor(site_url('kelas/delete/'.$kelas->id_kelas),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+        				// echo anchor(site_url('kelas/update/'.$kelas->id_kelas),'Edit'); 
+        				// echo ' | '; 
+        				// echo anchor(site_url('kelas/delete/'.$kelas->id_kelas),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
         				?>
         			</td>
         		</tr>

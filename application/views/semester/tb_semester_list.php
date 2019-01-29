@@ -11,7 +11,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('semester/create'),'Tambah Data Semester', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('semester/create'),'Tambah Data Semester', 'class="btn btn-primary"'); ?> -->
+                <a href="<?php echo base_url();?>semester/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Semester</button></a>
             </div>
             <div class="col-md-1 text-right">
             </div>
@@ -67,12 +68,14 @@
         			<td><?php echo $semester->tgl_akhirbayar ?></td>
         			<td><?php echo $semester->aktif ?></td>
         			<td style="text-align:center" width="200px">
-        				<?php 
+        				<a href="<?php echo base_url();?>semester/update/<?php echo $semester->id_semester;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>semester/delete/<?php echo $semester->id_semester;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
+                        <?php 
         				// echo anchor(site_url('semester/read/'.$semester->id_semester),'Read'); 
         				// echo ' | '; 
-        				echo anchor(site_url('semester/update/'.$semester->id_semester),'Edit'); 
-        				echo ' | '; 
-        				echo anchor(site_url('semester/delete/'.$semester->id_semester),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+        				// echo anchor(site_url('semester/update/'.$semester->id_semester),'Edit'); 
+        				// echo ' | '; 
+        				// echo anchor(site_url('semester/delete/'.$semester->id_semester),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
         				?>
         			</td>
         		</tr>

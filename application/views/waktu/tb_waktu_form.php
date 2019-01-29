@@ -40,8 +40,8 @@
         </div>
         <div class="col-md-12" style="text-align: right;">
     	    <input type="hidden" name="id_waktu" value="<?php echo $id_waktu; ?>" /> 
-    	    <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-    	    <a href="<?php echo site_url('waktu') ?>" class="btn btn-default">Cancel</a>
+    	    <button type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i> <?php echo $button ?></button> 
+    	    <a href="<?php echo site_url('waktu') ?>" class="btn btn-danger"><i class="fa fa-close fa-fw"></i> Cancel</a>
         </div>
         </div>
 	</form>

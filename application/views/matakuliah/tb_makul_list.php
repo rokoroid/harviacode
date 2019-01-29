@@ -75,7 +75,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('matakuliah/create'),'Tambah Data Matakuliah', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('matakuliah/create'),'Tambah Data Matakuliah', 'class="btn btn-primary"'); ?> -->
+                <a href="<?php echo base_url();?>matakuliah/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Matakuliah</button></a>
             </div>
             <div class="col-md-1 text-right">
             </div>
@@ -131,12 +132,14 @@
                     <td><?php echo $matakuliah->jenis_makul ?></td>
                     <td><?php echo $matakuliah->angkatan ?></td>
         			<td style="text-align:center" width="200px">
-        				<?php 
+        				<a href="<?php echo base_url();?>matakuliah/update/<?php echo $matakuliah->id_makul;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>matakuliah/delete/<?php echo $matakuliah->id_makul;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
+                        <?php 
         				// echo anchor(site_url('matakuliah/read/'.$matakuliah->id_makul),'Read'); 
         				// echo ' | '; 
-        				echo anchor(site_url('matakuliah/update/'.$matakuliah->id_makul),'Edit'); 
-        				echo ' | '; 
-        				echo anchor(site_url('matakuliah/delete/'.$matakuliah->id_makul),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+        				// echo anchor(site_url('matakuliah/update/'.$matakuliah->id_makul),'Edit'); 
+        				// echo ' | '; 
+        				// echo anchor(site_url('matakuliah/delete/'.$matakuliah->id_makul),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
         				?>
         			</td>
         		</tr>

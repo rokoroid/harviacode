@@ -11,7 +11,8 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align: right;">
-                <?php echo anchor(site_url('fakultas/create'),'Tambah Data Fakultas', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('fakultas/create'),'Tambah Data Fakultas', 'class="btn btn-primary"'); ?> -->
+                <a href="<?php echo base_url();?>fakultas/create"><button class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Tambah Data Fakultas</button></a>
             </div>
             <div class="col-md-1 text-right">
             </div>
@@ -59,12 +60,14 @@
         			<td><?php echo $fakultas->nama_fakultas ?> (<?php echo $fakultas->singkatan ?>)</td>
         			<td><?php echo $fakultas->keterangan ?></td>
         			<td style="text-align:center" width="200px">
-        				<?php 
+        				<a href="<?php echo base_url();?>fakultas/update/<?php echo $fakultas->id_fakultas;?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a onclick="return confirm('Yakin akan menghapus data ini?')" href="<?php echo base_url();?>fakultas/delete/<?php echo $fakultas->id_fakultas;?>" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i></a>
+                        <?php 
         				// echo anchor(site_url('fakultas/read/'.$fakultas->id_fakultas),'Read'); 
         				// echo ' | '; 
-        				echo anchor(site_url('fakultas/update/'.$fakultas->id_fakultas),'Edit'); 
-        				echo ' | '; 
-        				echo anchor(site_url('fakultas/delete/'.$fakultas->id_fakultas),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+        				// echo anchor(site_url('fakultas/update/'.$fakultas->id_fakultas),'Edit'); 
+        				// echo ' | '; 
+        				// echo anchor(site_url('fakultas/delete/'.$fakultas->id_fakultas),'Hapus','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
         				?>
 			         </td>
 		        </tr>

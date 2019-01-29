@@ -17,8 +17,8 @@ class Jadwal extends CI_Controller
         $this->load->model('M_kelas');
         $this->load->library('form_validation');
 
-        $userSession = $this->session->userdata('baaku');
-        if ($userSession['bagian'] != "staff"){
+        $userSession = $this->session->userdata('kaprodi');
+        if ($userSession['bagian'] != "kaprodi"){
             redirect('Login');
         }
     }
@@ -58,8 +58,8 @@ class Jadwal extends CI_Controller
             'dataProdi' => $prodi,
             'dataSemester' => $semester,
         );
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar');
+        $this->load->view('template/header3');
+        $this->load->view('template/sidebar3');
         $this->load->view('jadwal/tb_jadwal_list', $data);
         $this->load->view('template/footer');
     }
@@ -83,8 +83,8 @@ class Jadwal extends CI_Controller
         'dataDosen' => $dosen,
         'dataKelas' => $kelas,
 	);
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar');
+        $this->load->view('template/header3');
+        $this->load->view('template/sidebar3');
         $this->load->view('jadwal/tb_jadwal_form', $data);
         $this->load->view('template/footer');
     }
@@ -131,8 +131,8 @@ class Jadwal extends CI_Controller
         'dataDosen' => $dosen,
         'dataKelas' => $kelas,
 	    );
-            $this->load->view('template/header');
-            $this->load->view('template/sidebar');
+            $this->load->view('template/header3');
+            $this->load->view('template/sidebar3');
             $this->load->view('jadwal/tb_jadwal_form', $data);
             $this->load->view('template/footer');
         } else {

@@ -29,7 +29,7 @@ $(document).ready(function(){
             			field.nama_semester + " " + field.tahun_ajaran,
             			field.nama_makul,
             			field.nama_kelas,
-            			"<a href='" + window.base_url + "jadwal/update/" + field.id_kelas + "'>Edit</a> | <a href='" + window.base_url + "jadwal/delete/" + field.id_kelas + " onclick='javascript: return confirm(\"Are You Sure ?\")'>Hapus</a> "
+            			"<a href='" + window.base_url + "jadwal/update/" + field.id_jadwal + "'>Edit</a> | <a href='" + window.base_url + "jadwal/delete/" + field.id_jadwal + " onclick='javascript: return confirm(\"Are You Sure ?\")'>Hapus</a> "
             			]).draw(false);
             		i++;
         		});

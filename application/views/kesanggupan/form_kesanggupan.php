@@ -4,9 +4,9 @@
     <section class="content">
 
     <div class="row">
-        <div class="col-md-3 form-group">
+       <!--  <div class="col-md-3 form-group">
           <label>Nama Dosen</label>
-          <!-- <input type="text" name="nama_dosen" class="form-control" placeholder="Nama Dosen" > -->
+          <input type="text" name="nama_dosen" class="form-control" placeholder="Nama Dosen" >
           <select class="form-control" name="id_dosen" id="id_dosen">
                 <option value="">Pilih Dosen</option>
                 <?php
@@ -17,7 +17,7 @@
                 }
                 ?>
           </select>
-        </div>
+        </div> -->
         <!-- <div class="col-md-3 form-group">
           <label>Prodi</label>
           <input type="text" name="prodi" class="form-control" placeholder="Program Studi" >
